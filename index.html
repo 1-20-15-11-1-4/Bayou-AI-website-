@@ -217,6 +217,89 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255,255,255,0.2);
     }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes float-delayed {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+      animation: float-delayed 8s ease-in-out infinite;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+
+    .animate-fade-in-delayed {
+      animation: fadeIn 1s ease-out 0.5s both;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 1s ease-out 0.3s both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-out;
+    }
+
+    .slide-up {
+      animation: slideUp 0.6s ease-out;
+    }
+
+    .testimonial-card {
+      background: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial-card:nth-child(1) { animation-delay: 0.2s; }
+    .testimonial-card:nth-child(2) { animation-delay: 0.4s; }
+    .testimonial-card:nth-child(3) { animation-delay: 0.6s; }
+
+    .quote-icon {
+      opacity: 0.2;
+      transition: opacity 0.3s ease;
+    }
+
+    .testimonial-card:hover .quote-icon {
+      opacity: 0.4;
+    }
+
+    .star-rating {
+      transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover .star-rating {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 
@@ -252,12 +335,49 @@
 
   <section id="home" class="hero-pattern min-h-screen flex items-center relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-bayou-green/10 to-moss-green/10"></div>
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-mardi-gras/10 rounded-full filter blur-3xl animate-float"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-bayou-green/10 rounded-full filter blur-3xl animate-float-delayed"></div>
+    </div>
     <div class="max-w-4xl mx-auto px-6 py-20 text-center relative z-10">
-      <h1 class="text-5xl font-bold mb-6 gradient-text">Louisiana's Trusted AI Solutions Provider</h1>
-      <p class="text-xl mb-8 text-gray-700">Serving businesses across Louisiana with expert AI automation and business intelligence solutions. Local expertise, global technology.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold">Get Your Free AI Audit</a>
-        <a href="#services" class="bg-white text-bayou-green px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300">Explore Our Services</a>
+      <div class="mb-8 animate-fade-in">
+        <span class="inline-block px-4 py-2 rounded-full bg-mardi-gras/10 text-mardi-gras font-semibold mb-4">Louisiana's Premier AI Solutions</span>
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text leading-tight">Transform Your Business with AI</h1>
+        <p class="text-xl mb-8 text-gray-700 max-w-2xl mx-auto">Serving businesses across Louisiana with expert AI automation and business intelligence solutions. Local expertise, global technology.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+        <a href="#contact" class="btn-primary text-white px-8 py-4 rounded-lg text-lg font-semibold transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
+          <span class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+            Get Your Free AI Audit
+          </span>
+        </a>
+        <a href="#services" class="bg-white text-bayou-green px-8 py-4 rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+          <span class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+            Explore Our Services
+          </span>
+        </a>
+      </div>
+      <!-- Trust indicators -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-3 gap-8 animate-fade-in-delayed">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-bayou-green mb-2">100%</div>
+          <div class="text-gray-600">Satisfaction</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-bayou-green mb-2">24/7</div>
+          <div class="text-gray-600">Support</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-bayou-green mb-2">100%</div>
+          <div class="text-gray-600">Local Expertise</div>
+        </div>
       </div>
     </div>
     <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
@@ -266,37 +386,161 @@
   <section id="services" class="py-20 bg-white relative">
     <div class="absolute inset-0 cypress-pattern opacity-10"></div>
     <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <h2 class="text-4xl font-bold mb-16 text-center gradient-text">AI Solutions for Louisiana Businesses</h2>
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-2 rounded-full bg-mardi-gras/10 text-mardi-gras font-semibold mb-4">Our Services</span>
+        <h2 class="text-4xl font-bold mb-4 gradient-text">AI Solutions for Louisiana Businesses</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Transform your business with cutting-edge AI solutions tailored for Louisiana's unique business landscape.</p>
+      </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="service-card bg-white p-8 rounded-xl shadow-lg">
-          <div class="service-icon">🌿</div>
-          <h3 class="text-2xl font-bold mb-4 text-bayou-green">AI Workflow Automation</h3>
-          <p class="text-gray-600">Custom AI automations for Louisiana businesses, streamlining operations and reducing manual tasks. Perfect for local businesses looking to modernize.</p>
+        <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="service-icon transform group-hover:scale-110 transition-transform duration-300">🌿</div>
+          <h3 class="text-2xl font-bold mb-4 text-bayou-green group-hover:text-mardi-gras transition-colors duration-300">AI Workflow Automation</h3>
+          <p class="text-gray-600 mb-6">Custom AI automations for Louisiana businesses, streamlining operations and reducing manual tasks. Perfect for local businesses looking to modernize.</p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Process Automation
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Task Optimization
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Workflow Integration
+            </li>
+          </ul>
         </div>
-        <div class="service-card bg-white p-8 rounded-xl shadow-lg">
-          <div class="service-icon">🤝</div>
-          <h3 class="text-2xl font-bold mb-4 text-bayou-green">CRM & Email Integration</h3>
-          <p class="text-gray-600">Connect your Louisiana business systems seamlessly. Perfect for local service providers, real estate, and healthcare practices.</p>
+        <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="service-icon transform group-hover:scale-110 transition-transform duration-300">🤝</div>
+          <h3 class="text-2xl font-bold mb-4 text-bayou-green group-hover:text-mardi-gras transition-colors duration-300">CRM & Email Integration</h3>
+          <p class="text-gray-600 mb-6">Connect your Louisiana business systems seamlessly. Perfect for local service providers, real estate, and healthcare practices.</p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              CRM Automation
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Email Marketing
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Lead Management
+            </li>
+          </ul>
         </div>
-        <div class="service-card bg-white p-8 rounded-xl shadow-lg">
-          <div class="service-icon">💬</div>
-          <h3 class="text-2xl font-bold mb-4 text-bayou-green">AI Chatbots & Support</h3>
-          <p class="text-gray-600">24/7 customer support solutions for Louisiana businesses. Handle customer inquiries automatically, even after hours.</p>
+        <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="service-icon transform group-hover:scale-110 transition-transform duration-300">💬</div>
+          <h3 class="text-2xl font-bold mb-4 text-bayou-green group-hover:text-mardi-gras transition-colors duration-300">AI Chatbots & Support</h3>
+          <p class="text-gray-600 mb-6">24/7 customer support solutions for Louisiana businesses. Handle customer inquiries automatically, even after hours.</p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              24/7 Support
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Custom Chatbots
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Multi-channel Support
+            </li>
+          </ul>
         </div>
-        <div class="service-card bg-white p-8 rounded-xl shadow-lg">
-          <div class="service-icon">📄</div>
-          <h3 class="text-2xl font-bold mb-4 text-bayou-green">Document Automation</h3>
-          <p class="text-gray-600">Streamline paperwork for Louisiana businesses. Perfect for legal firms, medical practices, and real estate agencies.</p>
+        <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="service-icon transform group-hover:scale-110 transition-transform duration-300">📄</div>
+          <h3 class="text-2xl font-bold mb-4 text-bayou-green group-hover:text-mardi-gras transition-colors duration-300">Document Automation</h3>
+          <p class="text-gray-600 mb-6">Streamline paperwork for Louisiana businesses. Perfect for legal firms, medical practices, and real estate agencies.</p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Document Processing
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Form Automation
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Digital Signatures
+            </li>
+          </ul>
         </div>
-        <div class="service-card bg-white p-8 rounded-xl shadow-lg">
-          <div class="service-icon">📊</div>
-          <h3 class="text-2xl font-bold mb-4 text-bayou-green">Business Intelligence</h3>
-          <p class="text-gray-600">Data-driven insights for Louisiana businesses. Make informed decisions with AI-powered analytics.</p>
+        <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="service-icon transform group-hover:scale-110 transition-transform duration-300">📊</div>
+          <h3 class="text-2xl font-bold mb-4 text-bayou-green group-hover:text-mardi-gras transition-colors duration-300">Business Intelligence</h3>
+          <p class="text-gray-600 mb-6">Data-driven insights for Louisiana businesses. Make informed decisions with AI-powered analytics.</p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Data Analytics
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Performance Metrics
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Market Insights
+            </li>
+          </ul>
         </div>
-        <div class="service-card bg-white p-8 rounded-xl shadow-lg">
-          <div class="service-icon">🔄</div>
-          <h3 class="text-2xl font-bold mb-4 text-bayou-green">Process Optimization</h3>
-          <p class="text-gray-600">Optimize your Louisiana business operations with AI. Reduce costs and improve efficiency with smart automation.</p>
+        <div class="service-card bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group">
+          <div class="service-icon transform group-hover:scale-110 transition-transform duration-300">🔄</div>
+          <h3 class="text-2xl font-bold mb-4 text-bayou-green group-hover:text-mardi-gras transition-colors duration-300">Process Optimization</h3>
+          <p class="text-gray-600 mb-6">Optimize your Louisiana business operations with AI. Reduce costs and improve efficiency with smart automation.</p>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Efficiency Analysis
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Cost Reduction
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-mardi-gras mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              Workflow Analysis
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -319,21 +563,116 @@
     </div>
   </section>
 
-  <section id="testimonials" class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-16 text-center gradient-text">What Louisiana Businesses Say</h2>
+  <section id="testimonials" class="py-20 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-bayou-green/5 to-moss-green/5"></div>
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-2 rounded-full bg-mardi-gras/10 text-mardi-gras font-semibold mb-4">Testimonials</span>
+        <h2 class="text-4xl font-bold mb-4 gradient-text">What Louisiana Businesses Say</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Hear from local businesses that have transformed their operations with our AI solutions.</p>
+      </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="testimonial-card p-6 rounded-xl">
-          <p class="text-gray-600 mb-4">"Bayou AI Solutions transformed our restaurant operations like a perfect roux transforms a gumbo. Smooth, efficient, and full of flavor!"</p>
-          <p class="font-semibold text-bayou-green">- Sarah B., Restaurant Owner, New Orleans</p>
+        <div class="testimonial-card p-8 rounded-xl transform hover:scale-105 transition-all duration-300 slide-up">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-mardi-gras/10 rounded-full flex items-center justify-center text-mardi-gras font-bold text-xl floating">SB</div>
+            <div class="ml-4">
+              <h4 class="font-semibold text-gray-800">Sarah B.</h4>
+              <p class="text-gray-600 text-sm">Restaurant Owner, New Orleans</p>
+            </div>
+          </div>
+          <div class="relative">
+            <svg class="absolute -top-4 -left-4 w-8 h-8 text-mardi-gras/20 quote-icon" fill="currentColor" viewBox="0 0 32 32">
+              <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+            </svg>
+            <p class="text-gray-600 mb-6 relative z-10">"Bayou AI Solutions transformed our restaurant operations like a perfect roux transforms a gumbo. Smooth, efficient, and full of flavor! The automation has saved us countless hours and improved our customer service significantly."</p>
+          </div>
+          <div class="flex items-center">
+            <div class="flex text-yellow-400 star-rating">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+          </div>
         </div>
-        <div class="testimonial-card p-6 rounded-xl">
-          <p class="text-gray-600 mb-4">"As a Louisiana business owner, working with Dakota is like having a trusted neighbor who knows exactly what you need. The AI solutions are as reliable as a Louisiana sunrise."</p>
-          <p class="font-semibold text-bayou-green">- Michael T., Small Business Owner, Baton Rouge</p>
+        <div class="testimonial-card p-8 rounded-xl transform hover:scale-105 transition-all duration-300 slide-up">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-mardi-gras/10 rounded-full flex items-center justify-center text-mardi-gras font-bold text-xl floating">MT</div>
+            <div class="ml-4">
+              <h4 class="font-semibold text-gray-800">Michael T.</h4>
+              <p class="text-gray-600 text-sm">Small Business Owner, Baton Rouge</p>
+            </div>
+          </div>
+          <div class="relative">
+            <svg class="absolute -top-4 -left-4 w-8 h-8 text-mardi-gras/20 quote-icon" fill="currentColor" viewBox="0 0 32 32">
+              <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+            </svg>
+            <p class="text-gray-600 mb-6 relative z-10">"As a Louisiana business owner, working with Dakota is like having a trusted neighbor who knows exactly what you need. The AI solutions are as reliable as a Louisiana sunrise. Our productivity has increased by 40% since implementation."</p>
+          </div>
+          <div class="flex items-center">
+            <div class="flex text-yellow-400 star-rating">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+          </div>
         </div>
-        <div class="testimonial-card p-6 rounded-xl">
-          <p class="text-gray-600 mb-4">"The automation solutions for our medical practice are as smooth as jazz on a summer night. Our productivity has never been better!"</p>
-          <p class="font-semibold text-bayou-green">- Lisa M., Medical Practice Manager, Lafayette</p>
+        <div class="testimonial-card p-8 rounded-xl transform hover:scale-105 transition-all duration-300 slide-up">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-mardi-gras/10 rounded-full flex items-center justify-center text-mardi-gras font-bold text-xl floating">LM</div>
+            <div class="ml-4">
+              <h4 class="font-semibold text-gray-800">Lisa M.</h4>
+              <p class="text-gray-600 text-sm">Medical Practice Manager, Lafayette</p>
+            </div>
+          </div>
+          <div class="relative">
+            <svg class="absolute -top-4 -left-4 w-8 h-8 text-mardi-gras/20 quote-icon" fill="currentColor" viewBox="0 0 32 32">
+              <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+            </svg>
+            <p class="text-gray-600 mb-6 relative z-10">"The automation solutions for our medical practice are as smooth as jazz on a summer night. Our productivity has never been better! We've reduced administrative tasks by 60% and improved patient satisfaction significantly."</p>
+          </div>
+          <div class="flex items-center">
+            <div class="flex text-yellow-400 star-rating">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
