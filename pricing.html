@@ -4,8 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Transparent pricing for AI consulting and automation services in Shreveport, Louisiana. Custom AI solutions for businesses of all sizes." />
-  <meta name="keywords" content="AI Consulting Pricing Shreveport, Automation Services Cost Louisiana, AI Solutions Pricing, Business Automation Cost" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Transparent pricing for AI consulting and automation services in Louisiana. Custom AI solutions for businesses of all sizes." />
+  <meta name="keywords" content="AI Consulting Pricing Louisiana, Automation Services Cost Louisiana, AI Solutions Pricing, Business Automation Cost" />
   <title>Pricing | Bayou AI Solutions - Shreveport's Premier AI Consulting</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
@@ -16,6 +17,62 @@
       --cypress-brown: #40916C;
       --magnolia-white: #F8F9FA;
       --mardi-gras: #7209B7;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --magnolia-white: #1a1a1a;
+      }
+      
+      body {
+        background-color: var(--magnolia-white);
+        color: #e5e5e5;
+      }
+
+      .bg-white {
+        background-color: #2d2d2d !important;
+      }
+
+      .text-gray-700 {
+        color: #e5e5e5 !important;
+      }
+
+      .text-gray-600 {
+        color: #d1d1d1 !important;
+      }
+
+      .text-gray-800 {
+        color: #f5f5f5 !important;
+      }
+
+      .border-gray-300 {
+        border-color: #4a4a4a !important;
+      }
+
+      .form-input {
+        background-color: #2d2d2d !important;
+        color: #e5e5e5 !important;
+      }
+
+      .form-input::placeholder {
+        color: #9ca3af !important;
+      }
+
+      .pricing-card {
+        background-color: #2d2d2d !important;
+      }
+
+      .bg-white\/80 {
+        background-color: rgba(45, 45, 45, 0.8) !important;
+      }
+
+      .bg-white\/90 {
+        background-color: rgba(45, 45, 45, 0.9) !important;
+      }
+
+      .hover\:bg-gray-50:hover {
+        background-color: #3d3d3d !important;
+      }
     }
 
     body {
@@ -95,7 +152,7 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Transparent Pricing for AI Solutions</h1>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Choose the perfect plan for your Shreveport business. All plans include our signature Louisiana hospitality and expertise.</p>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Choose the perfect plan for your Louisiana business. All plans include our signature Louisiana hospitality and expertise.</p>
       </div>
 
       <!-- Monthly Plans -->
@@ -106,14 +163,14 @@
           <div class="pricing-card bg-white p-8 rounded-xl shadow-lg">
             <div class="text-center mb-8">
               <h3 class="text-2xl font-bold text-bayou-green mb-4">Starter</h3>
-              <div class="text-4xl font-bold mb-2">$997<span class="text-lg text-gray-500">/month</span></div>
+              <div class="text-4xl font-bold mb-2">$497<span class="text-lg text-gray-500">/month</span></div>
               <p class="text-gray-600">Perfect for small businesses starting with AI</p>
             </div>
             <ul class="feature-list space-y-4 mb-8">
-              <li>2 AI Workflow Automations</li>
+              <li>1 AI Workflow Automation</li>
               <li>Basic CRM Integration</li>
               <li>Email Automation Setup</li>
-              <li>5 Hours of Support</li>
+              <li>3 Hours of Support</li>
               <li>Monthly Performance Report</li>
               <li>Basic Training Session</li>
             </ul>
@@ -125,18 +182,17 @@
             <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-bayou-green text-white px-4 py-1 rounded-full text-sm">Most Popular</div>
             <div class="text-center mb-8">
               <h3 class="text-2xl font-bold text-bayou-green mb-4">Professional</h3>
-              <div class="text-4xl font-bold mb-2">$2,497<span class="text-lg text-gray-500">/month</span></div>
+              <div class="text-4xl font-bold mb-2">$997<span class="text-lg text-gray-500">/month</span></div>
               <p class="text-gray-600">Ideal for growing businesses</p>
             </div>
             <ul class="feature-list space-y-4 mb-8">
-              <li>5 AI Workflow Automations</li>
+              <li>3 AI Workflow Automations</li>
               <li>Advanced CRM Integration</li>
               <li>Custom Email Sequences</li>
-              <li>15 Hours of Support</li>
+              <li>8 Hours of Support</li>
               <li>Weekly Performance Reports</li>
               <li>Monthly Training Sessions</li>
-              <li>AI Chatbot Setup</li>
-              <li>Document Automation</li>
+              <li>Basic AI Chatbot Setup</li>
             </ul>
             <a href="index.html#contact" class="btn-primary block text-center text-white py-3 rounded-lg font-semibold">Get Started</a>
           </div>
@@ -145,14 +201,14 @@
           <div class="pricing-card bg-white p-8 rounded-xl shadow-lg">
             <div class="text-center mb-8">
               <h3 class="text-2xl font-bold text-bayou-green mb-4">Enterprise</h3>
-              <div class="text-4xl font-bold mb-2">$4,997<span class="text-lg text-gray-500">/month</span></div>
+              <div class="text-4xl font-bold mb-2">$1,997<span class="text-lg text-gray-500">/month</span></div>
               <p class="text-gray-600">For businesses ready to scale</p>
             </div>
             <ul class="feature-list space-y-4 mb-8">
-              <li>Unlimited AI Workflows</li>
+              <li>5 AI Workflows</li>
               <li>Full System Integration</li>
               <li>Custom AI Solutions</li>
-              <li>30 Hours of Support</li>
+              <li>15 Hours of Support</li>
               <li>Real-time Analytics</li>
               <li>Weekly Training Sessions</li>
               <li>Advanced AI Chatbot</li>
@@ -172,7 +228,7 @@
             <h3 class="text-2xl font-bold text-bayou-green mb-4">AI Audit</h3>
             <div class="flex items-center justify-center gap-2 mb-4">
               <span class="text-3xl font-bold text-mardi-gras">$0</span>
-              <span class="text-lg text-gray-500 line-through">$997</span>
+              <span class="text-lg text-gray-500 line-through">$497</span>
             </div>
             <div class="text-center text-sm text-mardi-gras font-semibold mb-4">Limited Time Offer!</div>
             <ul class="feature-list space-y-4 mb-8">
@@ -187,7 +243,7 @@
 
           <div class="pricing-card bg-white p-8 rounded-xl shadow-lg">
             <h3 class="text-2xl font-bold text-bayou-green mb-4">Custom AI Solution</h3>
-            <div class="text-3xl font-bold mb-4">Starting at $2,997</div>
+            <div class="text-3xl font-bold mb-4">Starting at $1,497</div>
             <ul class="feature-list space-y-4 mb-8">
               <li>Custom Workflow Design</li>
               <li>System Integration</li>
@@ -200,7 +256,7 @@
 
           <div class="pricing-card bg-white p-8 rounded-xl shadow-lg">
             <h3 class="text-2xl font-bold text-bayou-green mb-4">AI Training Workshop</h3>
-            <div class="text-3xl font-bold mb-4">$1,497</div>
+            <div class="text-3xl font-bold mb-4">$997</div>
             <ul class="feature-list space-y-4 mb-8">
               <li>4-Hour Workshop</li>
               <li>Up to 10 Team Members</li>
@@ -257,8 +313,8 @@
         <div>
           <h3 class="text-xl font-bold mb-4">Contact Info</h3>
           <ul class="space-y-2 text-gray-300">
-            <li>Shreveport, Louisiana</li>
-            <li>Serving: Shreveport, Bossier City, and Northwest Louisiana</li>
+            <li>Louisiana</li>
+            <li>Serving: New Orleans, Baton Rouge, Lafayette, and all of Louisiana</li>
             <li>dakotastpierre0@gmail.com</li>
             <li>(318) 312-3373</li>
           </ul>
@@ -329,12 +385,12 @@
 
     // FAQ responses
     const faqResponses = {
-      'pricing': 'We offer three main plans: Starter ($997/month), Professional ($2,497/month), and Enterprise ($4,997/month). We also provide one-time services like AI Audits and Training Workshops.',
+      'pricing': 'We offer three main plans: Starter ($497/month), Professional ($997/month), and Enterprise ($1,997/month). We also provide one-time services like AI Audits and Training Workshops.',
       'services': 'We provide AI workflow automation, CRM integration, chatbots, document automation, business intelligence, and process optimization services.',
       'location': 'We\'re based in Shreveport, Louisiana, serving the entire Northwest Louisiana region including Bossier City.',
       'contact': 'You can reach us at dakotastpierre0@gmail.com or call (318) 312-3373.',
       'implementation': 'Implementation typically takes 2-4 weeks, depending on your chosen plan and specific needs.',
-      'support': 'We provide 5-30 hours of monthly support depending on your plan, covering implementation, troubleshooting, and training.',
+      'support': 'We provide 3-15 hours of monthly support depending on your plan, covering implementation, troubleshooting, and training.',
       'custom': 'Yes, we offer custom AI solutions tailored to your specific business needs. Contact us for a custom quote.',
       'training': 'We offer monthly training sessions with our Professional and Enterprise plans, and one-time workshops for all clients.',
       'start': 'To get started, you can schedule a free AI audit or contact us through our website for a consultation.',
