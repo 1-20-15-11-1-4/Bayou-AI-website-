@@ -705,26 +705,111 @@
       </div>
     </div>
   </section>
-<form name="contact" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="contact">
-  <div>
-    <label for="name" class="block font-medium text-gray-700 mb-2">Name</label>
-    <input type="text" id="name" name="name" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" required>
-  </div>
-  <div>
-    <label for="email" class="block font-medium text-gray-700 mb-2">Email</label>
-    <input type="email" id="email" name="email" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" required>
-  </div>
-  <div>
-    <label for="business" class="block font-medium text-gray-700 mb-2">Business Name</label>
-    <input type="text" id="business" name="organization_name" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md">
-  </div>
-  <div>
-    <label for="message" class="block font-medium text-gray-700 mb-2">Message</label>
-    <textarea id="message" name="message" rows="5" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" required></textarea>
-  </div>
-  <button type="submit" class="btn-primary w-full text-white py-4 rounded-lg text-lg font-semibold">Get Your Free AI Consultation</button>
-</form>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4 gradient-text">Tell us where you're at</h2>
+        <p class="text-xl text-gray-600">Let's start your AI transformation journey</p>
+      </div>
+      
+      <form name="contact" method="POST" data-netlify="true" class="space-y-6">
+        <input type="hidden" name="form-name" value="contact">
+        
+        <!-- Personal Information -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block font-medium text-gray-700 mb-2">What is your name?</label>
+            <input type="text" id="name" name="name" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" placeholder="Name" required>
+          </div>
+          <div>
+            <label for="email" class="block font-medium text-gray-700 mb-2">What is your email?</label>
+            <input type="email" id="email" name="email" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" placeholder="Email" required>
+          </div>
+        </div>
+
+        <!-- Company Information -->
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="role" class="block font-medium text-gray-700 mb-2">What is your role in the company?</label>
+            <input type="text" id="role" name="role" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" placeholder="Enter role">
+          </div>
+          <div>
+            <label for="company_name" class="block font-medium text-gray-700 mb-2">Company Name</label>
+            <input type="text" id="company_name" name="company_name" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" placeholder="Enter company name">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="company_website" class="block font-medium text-gray-700 mb-2">Company Website</label>
+            <input type="url" id="company_website" name="company_website" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" placeholder="Enter company website">
+          </div>
+          <div>
+            <label for="company_size" class="block font-medium text-gray-700 mb-2">Company Size <span class="text-red-500">*</span></label>
+            <select id="company_size" name="company_size" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" required>
+              <option value="">Select company size</option>
+              <option value="1-10">1-10 employees</option>
+              <option value="11-50">11-50 employees</option>
+              <option value="51-200">51-200 employees</option>
+              <option value="201-500">201-500 employees</option>
+              <option value="500+">500+ employees</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="annual_revenue" class="block font-medium text-gray-700 mb-2">Company's Annual Revenue <span class="text-red-500">*</span></label>
+            <select id="annual_revenue" name="annual_revenue" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" required>
+              <option value="">Select revenue range</option>
+              <option value="Under $100k">Under $100k</option>
+              <option value="$100k - $500k">$100k - $500k</option>
+              <option value="$500k - $1M">$500k - $1M</option>
+              <option value="$1M - $5M">$1M - $5M</option>
+              <option value="$5M - $10M">$5M - $10M</option>
+              <option value="$10M+">$10M+</option>
+            </select>
+          </div>
+          <div>
+            <label for="project_budget" class="block font-medium text-gray-700 mb-2">Project budget <span class="text-red-500">*</span></label>
+            <select id="project_budget" name="project_budget" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" required>
+              <option value="">Select budget range</option>
+              <option value="Under $5k">Under $5k</option>
+              <option value="$5k - $10k">$5k - $10k</option>
+              <option value="$10k - $25k">$10k - $25k</option>
+              <option value="$25k - $50k">$25k - $50k</option>
+              <option value="$50k - $100k">$50k - $100k</option>
+              <option value="$100k+">$100k+</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="services_interested" class="block font-medium text-gray-700 mb-2">What services are you interested in? <span class="text-red-500">*</span></label>
+          <select id="services_interested" name="services_interested" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" required>
+            <option value="">Select service</option>
+            <option value="AI Workflow Automation">AI Workflow Automation</option>
+            <option value="CRM & Email Integration">CRM & Email Integration</option>
+            <option value="AI Chatbots">AI Chatbots</option>
+            <option value="Document Automation">Document Automation</option>
+            <option value="Business Intelligence">Business Intelligence</option>
+            <option value="Process Optimization">Process Optimization</option>
+            <option value="Custom AI Solutions">Custom AI Solutions</option>
+            <option value="Multiple Services">Multiple Services</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="block font-medium text-gray-700 mb-2">Message</label>
+          <textarea id="message" name="message" rows="4" class="form-input w-full border border-gray-300 px-4 py-3 rounded-md" placeholder="Tell us more about your project or any specific requirements..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary w-full text-white py-4 rounded-lg text-lg font-semibold">Get Your Free AI Consultation</button>
+      </form>
+    </div>
+  </section>
 
   <footer class="bg-bayou-green text-white py-12">
     <div class="max-w-7xl mx-auto px-6">
