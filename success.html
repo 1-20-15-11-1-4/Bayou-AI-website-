@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Bayou AI Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bayou-green: #1B4332;
+            --moss-green: #2D6A4F;
+            --cypress-brown: #40916C;
+            --magnolia-white: #F8F9FA;
+            --mardi-gras: #7209B7;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, var(--bayou-green), var(--mardi-gras));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--bayou-green), var(--moss-green));
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="max-w-2xl mx-auto px-6 py-20 text-center">
+        <div class="bg-white rounded-lg shadow-lg p-12">
+            <div class="mb-8">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-bold gradient-text mb-4">Thank You!</h1>
+                <p class="text-xl text-gray-600 mb-6">Your AI consultation request has been submitted successfully.</p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">What happens next?</h2>
+                <ul class="text-left space-y-3 text-gray-600">
+                    <li class="flex items-start">
+                        <span class="w-2 h-2 bg-cypress-brown rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span>We'll review your information within 24 hours</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-2 h-2 bg-cypress-brown rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span>You'll receive a personalized AI strategy consultation</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="w-2 h-2 bg-cypress-brown rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span>We'll discuss how AI can transform your business</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="space-y-4">
+                <a href="index.html" class="btn-primary text-white px-8 py-3 rounded-lg font-semibold inline-block">
+                    Return to Home
+                </a>
+                <p class="text-sm text-gray-500">
+                    Questions? Contact us at <a href="mailto:dakotastpierre0@gmail.com" class="text-cypress-brown hover:underline">dakotastpierre0@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
